@@ -17,8 +17,28 @@ export class AuthenticationService {
   ) {}
 
   login(email: string, password: string) {
-   
+
     return this.http.post<User>(`/api/login`, { email, password }).pipe(
+      map((user) => {
+        // login successful if there's a jwt token in the response
+        if (user && user.token) {
+          this.user = user
+          // store user details and jwt in session
+          this.cookieService.set(
+            this.authSessionKey,
+            JSON.stringify(user.token),
+            1,
+            '/'
+          )
+        }
+        return user
+      })
+    )
+  }
+
+  connexion(data: any) {
+
+    return this.http.post<User>(`/api/login`, data).pipe(
       map((user) => {
         // login successful if there's a jwt token in the response
         if (user && user.token) {

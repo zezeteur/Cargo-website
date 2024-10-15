@@ -56,12 +56,18 @@
     </div>
 
     <script>
-      document
-        .querySelector('app-root')
-        ?.addEventListener('DOMNodeInserted', () => {
-          document.querySelector('#splash-screen')?.classList.add('remove')
-        })
+      document.addEventListener('DOMContentLoaded', () => {
+        const observer = new MutationObserver(() => {
+          document.querySelector('#splash-screen')?.classList.add('remove');
+          observer.disconnect();
+        });
+
+        observer.observe(document.querySelector('app-root'), {
+          childList: true,
+        });
+      });
     </script>
+
     <noscript>You need to enable JavaScript to run this app.</noscript>
   </body>
 </html>

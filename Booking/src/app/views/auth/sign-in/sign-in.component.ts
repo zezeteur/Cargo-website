@@ -7,10 +7,13 @@ import {
   ReactiveFormsModule,
   UntypedFormBuilder,
   Validators,
-  type UntypedFormGroup,
+  type UntypedFormGroup, FormBuilder,
 } from '@angular/forms'
 import { RouterModule } from '@angular/router'
 import { Store } from '@ngrx/store'
+import { AuthenticationService } from '@core/services/auth.service'
+import { catchError, tap } from 'rxjs/operators'
+import { throwError } from 'rxjs'
 
 @Component({
   selector: 'auth-sign-in',
@@ -29,15 +32,15 @@ export class SignInComponent {
   signinForm!: UntypedFormGroup
   submitted: boolean = false
   passwordType: boolean = true
-
   public fb = inject(UntypedFormBuilder)
   store = inject(Store)
 
-  constructor() {
-    this.signinForm = this.fb.group({
-      email: ['user@gmail.com', [Validators.required, Validators.email]],
-      password: ['123456', [Validators.required]],
-    })
+  constructor(private frmBuilder: FormBuilder, private authService: AuthenticationService) {
+    // this.signinForm = this.fb.group({
+    //   email: ['user@gmail.com', [Validators.required, Validators.email]],
+    //   password: ['123456', [Validators.required]],
+    // })
+    this.createForm();
   }
 
   get form() {
@@ -57,5 +60,28 @@ export class SignInComponent {
 
   changeType() {
     this.passwordType = !this.passwordType
+  }
+
+  createForm() {
+    return this.signinForm = this.frmBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]],
+    })
+  }
+
+  submitData() {
+    if (this.signinForm.invalid) {
+      return;
+    }
+    console.log(this.signinForm.value);
+    this.authService.connexion(this.signinForm.value).pipe(
+      tap((user: any) => {
+        console.log("le user a ete connecte avec succès")
+      }),
+      catchError((error: any): any => {
+        // Handle authentication error.
+        return throwError(error);
+      })
+    )
   }
 }
