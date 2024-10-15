@@ -1,0 +1,47 @@
+<div class="card border">
+  <div class="card-body p-4 pb-0">
+    <div class="row g-4">
+      <div class="col-md-3">
+        <img src="assets/images/element/utb.png" class="w-80px mb-3" alt="" />
+
+        <h6 class="fw-normal mb-0">UTB</h6>
+        <h6 class="fw-normal mb-0">PA - 5620</h6>
+      </div>
+
+      <div class="col-sm-4 col-md-3">
+        <h4>09:20</h4>
+        <h6 class="mb-0">Ven, 18 Oct {{ currentYear }}</h6>
+        <p class="mb-0">Adjame - Côte d'ivoire</p>
+      </div>
+
+      <div class="col-sm-4 col-md-3">
+        <h4>12:20</h4>
+        <h6 class="mb-0">Ven, 18 Oct {{ currentYear }}</h6>
+        <p class="mb-0">Yamoussoukro - Côte d'ivoire</p>
+      </div>
+
+      <div class="col-sm-4 col-md-3">
+        <h4>4000 {{ currencyType }}</h4>
+        <a routerLink="/flights/detail" class="btn btn-dark">Réserver</a>
+        <button
+          class="btn btn-link text-decoration-underline p-0 mb-0 ms-1"
+          (click)="open()"
+          data-bs-toggle="modal"
+          data-bs-target="#flightdetail"
+        >
+          <i class="bi bi-eye-fill me-1"></i>Voir détails
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-footer p-4">
+    <div class="bg-light p-2 rounded-2">
+      <ul class="list-inline d-sm-flex justify-content-sm-between mb-0 mx-4">
+        <li class="list-inline-item text-danger">7 Places restantes</li>
+        <li class="list-inline-item">Durée : 3h</li>
+        <li class="list-inline-item text-success"></li>
+      </ul>
+    </div>
+  </div>
+</div>

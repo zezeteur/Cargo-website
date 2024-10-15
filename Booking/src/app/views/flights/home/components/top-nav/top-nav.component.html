@@ -1,0 +1,55 @@
+@if (staticAlert) {
+  <ngb-alert
+    [dismissible]="false"
+    class="alert topNav alert-warning py-2 text-white m-0 bg-primary border-0 rounded-0 alert-dismissible fade show text-center overflow-hidden"
+    role="alert"
+  >
+    <p class="text-white m-0">
+      🎉 Désormais vous pouvez effectuer vos paiements via cartes de credits<a
+        href="javascript:void(0)"
+        class="btn btn-xs btn-dark ms-2 mb-0"
+        >Voir plus ></a
+      >
+    </p>
+    <button
+      type="button"
+      class="btn-close btn-close-white opacity-9 p-3"
+      (click)="staticAlert = false"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+  </ngb-alert>
+}
+
+<sticky-header-component>
+  <nav class="navbar navbar-expand-xl">
+    <div class="container">
+      <app-logo-box />
+
+      <vertical-menu-button
+        [showText]="false"
+        className="ms-auto mx-3 me-xl-0 p-0 p-sm-1"
+      />
+
+      <app-menu
+        [startBookingMenu]="true"
+        [showExtraPages]="true"
+        [menuClassName]="'me-auto'"
+      />
+
+      <ul class="nav flex-row align-items-center list-unstyled ms-xl-auto">
+        <app-theme-switcher
+          [btnclassName]="'btn btn-link text-warning p-0 mb-0'"
+        />
+
+
+        <li class="nav-item ms-2 d-none d-sm-block">
+          <a href="javascript:void(0)" class="btn btn-sm btn-primary-soft mb-0"
+             routerLink="/auth/sign-in">
+            <i class="fa-solid fa-right-to-bracket me-1"></i>Se connecter</a
+          >
+        </li>
+      </ul>
+    </div>
+  </nav>
+</sticky-header-component>
