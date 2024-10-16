@@ -15,7 +15,7 @@
         </div>
       </div>
 
-      <form class="bg-mode position-relative px-3 px-sm-4 pt-4 mb-4 mb-sm-0" [formGroup]="searchForm" (ngSubmit)="onSearch()">
+      <form class="bg-mode position-relative px-3 px-sm-4 pt-4 mb-4 mb-sm-0" [formGroup]="searchForm" (ngSubmit)="onSearch($event)">
         <figure class="position-absolute top-0 start-0 h-100 ms-n2 ms-sm-n1">
           <svg
             class="h-100"
@@ -203,7 +203,7 @@
                         <a
                           class="btn btn-primary mb-n4"
                           type="submit"
-                          (click)="onSearch()"
+                          (click)="onSearch($event)"
                           >Rechercher <i class="bi bi-search ps-3"></i
                         ></a>
                       </div>
@@ -374,7 +374,7 @@
                         <a
                           class="btn btn-primary mb-n4"
                           type="submit"
-                          (click)="onSearch()"
+                          (click)="onSearch($event)"
                           >Rechercher <i class="bi bi-search ps-3"></i
                         ></a>
                       </div>

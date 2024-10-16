@@ -32,7 +32,7 @@ export class HeroComponent implements OnInit {
   }
 
 
-  onSearch() {
+  onSearch($event: MouseEvent) {
     console.log(this.searchForm.value);
     this.search.search(this.searchForm.value.start, this.searchForm.value.destination, this.searchForm.value.date).subscribe(
       data => {
