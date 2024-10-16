@@ -32,9 +32,15 @@ export class AuthenticationService {
           )
         }
         return user
+
+
+
       })
     )
   }
+
+
+
 
   connexion(data: any) {
 
