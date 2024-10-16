@@ -26,7 +26,7 @@ const token =
 const fakeUsers: User[] = [
   {
     id: 1,
-    username: 'user',
+    userName: 'user',
     email: 'user@gmail.com',
     password: '123456',
     firstName: 'user',
@@ -36,7 +36,7 @@ const fakeUsers: User[] = [
 
   {
     id: 1,
-    username: 'user',
+    userName: 'user',
     email: 'ange@gmail.com',
     password: '291020',
     firstName: 'ange',

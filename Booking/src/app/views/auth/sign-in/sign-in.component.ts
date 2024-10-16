@@ -1,19 +1,15 @@
 import { credits, currentYear } from '@/app/store'
-import { login } from '@/app/store/authentication/authentication.actions'
 import { CommonModule } from '@angular/common'
-import { Component, inject } from '@angular/core'
+import { Component, inject, OnInit } from '@angular/core'
 import {
   FormsModule,
   ReactiveFormsModule,
-  UntypedFormBuilder,
-  Validators,
-  type UntypedFormGroup, FormBuilder,
+  Validators, FormBuilder, FormGroup,
 } from '@angular/forms'
-import { RouterModule } from '@angular/router'
+import { Router, RouterModule } from '@angular/router'
 import { Store } from '@ngrx/store'
-import { AuthenticationService } from '@core/services/auth.service'
-import { catchError, tap } from 'rxjs/operators'
-import { throwError } from 'rxjs'
+import { AuthenticationService } from '@core/services/auth.service';
+import { User } from '@core/models'
 
 @Component({
   selector: 'auth-sign-in',
@@ -26,35 +22,37 @@ import { throwError } from 'rxjs'
     }
   `,
 })
-export class SignInComponent {
+export class SignInComponent implements OnInit {
   creditsBy = credits
-  currentYear = currentYear
-  signinForm!: UntypedFormGroup
+  currentYear: any = currentYear;
+
   submitted: boolean = false
+  signinForm!: FormGroup
   passwordType: boolean = true
-  public fb = inject(UntypedFormBuilder)
   store = inject(Store)
 
-  constructor(private frmBuilder: FormBuilder, private authService: AuthenticationService) {
-    // this.signinForm = this.fb.group({
-    //   email: ['user@gmail.com', [Validators.required, Validators.email]],
-    //   password: ['123456', [Validators.required]],
-    // })
-    this.createForm();
+  constructor(private frmBuilder: FormBuilder, private authService: AuthenticationService, private router: Router) {
   }
 
-  get form() {
-    return this.signinForm.controls
+  createForm() {
+    this.signinForm =  this.frmBuilder.group({
+      userName: ['', [Validators.required]],
+      password: ['', Validators.required],
+    });
   }
 
-  onLogin() {
-    this.submitted = true
+  submitData() {
     if (this.signinForm.valid) {
-      const email = this.form['email'].value // Get the username from the form
-      const password = this.form['password'].value // Get the password from the form
-
-      // Login Api
-      this.store.dispatch(login({ email: email, password: password }))
+      console.log(this.signinForm.value);
+      this.authService.connexion(this.signinForm.value).subscribe({
+        next: (user: User) => {
+          console.log('User authenticated successfully', user);
+          this.router.navigate(['/flights/home']);
+        },
+        error: (error) => {
+          console.error('Error while authenticating user', error);
+        },
+      });
     }
   }
 
@@ -62,26 +60,7 @@ export class SignInComponent {
     this.passwordType = !this.passwordType
   }
 
-  createForm() {
-    return this.signinForm = this.frmBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]],
-    })
-  }
-
-  submitData() {
-    if (this.signinForm.invalid) {
-      return;
-    }
-    console.log(this.signinForm.value);
-    this.authService.connexion(this.signinForm.value).pipe(
-      tap((user: any) => {
-        console.log("le user a ete connecte avec succès")
-      }),
-      catchError((error: any): any => {
-        // Handle authentication error.
-        return throwError(error);
-      })
-    )
+  ngOnInit(): void {
+    this.createForm();
   }
 }

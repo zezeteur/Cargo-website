@@ -1,6 +1,6 @@
-export class User {
+export interface User {
   id?: string | number
-  username?: string
+  userName?: string
   password?: string
   name?: string
   firstName?: string

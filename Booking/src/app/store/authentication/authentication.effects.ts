@@ -11,27 +11,28 @@ import {
   logout,
   logoutSuccess,
 } from './authentication.actions'
+import { User } from '@core/models'
 
 @Injectable()
 export class AuthenticationEffects {
-  login$ = createEffect(() =>
-    this.actions$.pipe(
-      ofType(login),
-      exhaustMap(({ email, password }) => {
-        return this.AuthenticationService.login(email, password).pipe(
-          map((user) => {
-            if (user) {
-              const returnUrl =
-                this.route.snapshot.queryParams['returnUrl'] || '/'
-              this.router.navigateByUrl(returnUrl)
-            }
-            return loginSuccess({ user })
-          }),
-          catchError((error) => of(loginFailure({ error })))
-        )
-      })
-    )
-  )
+  // login$ = createEffect(() =>
+  //   this.actions$.pipe(
+  //     ofType(login),
+  //     exhaustMap(({ email, password }) => {
+  //       return this.AuthenticationService.connexion().pipe(
+  //         map((user) => {
+  //           if (user) {
+  //             const returnUrl =
+  //               this.route.snapshot.queryParams['returnUrl'] || '/'
+  //             this.router.navigateByUrl(returnUrl)
+  //           }
+  //           return loginSuccess({ user })
+  //         }),
+  //         catchError((error) => of(loginFailure({ error })))
+  //       )
+  //     })
+  //   )
+  // )
 
   logout$ = createEffect(() =>
     this.actions$.pipe(

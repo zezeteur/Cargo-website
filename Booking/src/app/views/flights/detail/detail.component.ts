@@ -5,6 +5,7 @@ import { FlightDetailsComponent } from './components/flight-details/flight-detai
 import { FlightInformationComponent } from './components/flight-information/flight-information.component'
 import { TopbarComponent } from './components/topbar/topbar.component'
 import { Footer1Component } from './components/footer1/footer1.component'
+import { Footer3Component } from '@views/flights/home/components/footer3/footer3.component'
 
 @Component({
   selector: 'app-detail',
@@ -16,6 +17,7 @@ import { Footer1Component } from './components/footer1/footer1.component'
     FlightDetailsComponent,
     FlightInformationComponent,
     Footer1Component,
+    Footer3Component,
   ],
   templateUrl: './detail.component.html',
   styles: ``,

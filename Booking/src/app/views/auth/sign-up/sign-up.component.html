@@ -9,12 +9,12 @@
 <div class="col-lg-6 order-1">
   <div class="p-4 p-sm-6">
     <a routerLink="/">
-      <img class="h-50px mb-4" src="assets/images/logo-icon.svg" alt="logo" />
+      <img class="h-50px mb-4" src="assets/images/logo.png" alt="logo" />
     </a>
 
-    <h1 class="mb-2 h3">Create new account</h1>
+    <h1 class="mb-2 h3">Créer un compte</h1>
     <p class="mb-0">
-      Already a member?<a routerLink="/auth/sign-in"> Log in</a>
+      Déja un compte ?<a routerLink="/auth/sign-in"> Se connecter</a>
     </p>
 
     <form
@@ -23,18 +23,18 @@
       class="mt-4 text-start"
     >
       <div class="mb-3">
-        <label class="form-label">Enter email id</label>
+        <label class="form-label">Email ou Nom d'utilisateur</label>
         <input
           type="email"
           formControlName="email"
           class="form-control"
           [ngClass]="{ 'is-invalid': submitted && form['email'].errors }"
         />
-        <div class="invalid-feedback">Please enter your email</div>
+        <div class="invalid-feedback">Veuillez entrer votre email</div>
       </div>
 
       <div class="mb-3 position-relative">
-        <label class="form-label">Enter password</label>
+        <label class="form-label">Mot de passe</label>
         <input
           class="form-control fakepassword"
           formControlName="password"
@@ -61,7 +61,7 @@
       </div>
 
       <div class="mb-3 position-relative">
-        <label class="form-label">Confirm Password</label>
+        <label class="form-label">Confirmer mot de passe</label>
         <input
           [type]="fieldTextType1 ? 'text' : 'password'"
           formControlName="confirmpwd"
@@ -95,13 +95,13 @@
           id="rememberCheck"
         />
         <label class="form-check-label" for="rememberCheck">
-          Keep me signed in</label
+        Se souvenir de moi</label
         >
       </div>
 
       <div>
         <button type="submit" class="btn btn-primary w-100 mb-0">
-          Sign up
+          S'inscrire
         </button>
       </div>
 
@@ -110,28 +110,22 @@
         <p
           class="small position-absolute top-50 start-50 translate-middle bg-mode px-1 px-sm-2"
         >
-          Or sign in with
+         Ou
         </p>
       </div>
 
       <div class="vstack gap-3">
         <a href="javascript:void(0);" class="btn btn-light mb-0"
-          ><i class="fab fa-fw fa-google text-google-icon me-2"></i>Sign in with
+          ><i class="fab fa-fw fa-google text-google-icon me-2"></i>S'inscrire avec
           Google</a
         >
         <a href="javascript:void(0);" class="btn btn-light mb-0"
-          ><i class="fab fa-fw fa-facebook-f text-facebook me-2"></i>Sign in
-          with Facebook</a
+          ><i class="fab fa-fw fa-facebook-f text-facebook me-2"></i>S'inscrire avec
+          Facebook</a
         >
       </div>
 
-      <div class="text-primary-hover text-body mt-3 text-center">
-        Copyrights ©{{ currentYear }} Booking. Build by
-        <a href="{{ creditsBy.website }}" class="text-body">{{
-          creditsBy.name
-        }}</a
-        >.
-      </div>
+
     </form>
   </div>
 </div>

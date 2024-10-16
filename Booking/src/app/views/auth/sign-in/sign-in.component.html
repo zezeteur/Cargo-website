@@ -17,18 +17,14 @@
       Nouveau ici ?<a routerLink="/auth/sign-up"> Creer un compte</a>
     </p>
 
-    <form
-      [formGroup]="signinForm"
-      (ngSubmit)="submitData()"
-      class="mt-4 text-start"
-    >
+    <form novalidate="" [formGroup]="signinForm" class="mt-4 text-start">
       <div class="mb-3">
         <label class="form-label">Email ou Nom d'utilisateur</label>
         <input
-          type="email"
-          formControlName="email"
+          type="text"
+          formControlName="userName"
           class="form-control"
-          [ngClass]="{ 'is-invalid': submitted && form['email'].errors }"
+
         />
         <div class="invalid-feedback">Veillez entrer votre Email ou Nom d'utilisateur svp</div>
       </div>
@@ -39,7 +35,6 @@
           class="form-control fakepassword"
           formControlName="password"
           [type]="passwordType ? 'password' : 'text'"
-          [ngClass]="{ 'is-invalid': submitted && form['password'].errors }"
           id="psw-input"
         />
         <span
@@ -69,7 +64,7 @@
       </div>
 
       <div>
-        <button type="submit" class="btn btn-primary w-100 mb-0">Se connecter</button>
+        <button type="submit" (click)="submitData()" class="btn btn-primary w-100 mb-0">Se connecter</button>
       </div>
 
       <div class="position-relative my-4">

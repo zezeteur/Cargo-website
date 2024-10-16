@@ -6,13 +6,15 @@ export type NotificationType = {
 
 export const notificationData: NotificationType[] = [
   {
-    title: 'New! Booking flights from New York ✈️',
+    title: 'Nouvelle compagnie !️',
     content:
-      'Find the flexible ticket on flights around the world. Start searching today',
-    time: '05 Feb 2024',
+      'VIP Transport est desormais sur Cargo',
+    time: '16 Oct 2024',
   },
   {
-    title: 'Sunshine saving are here 🌞 save 30% or more on a stay',
-    time: '24 Aug 2024',
+    title: 'Paiement par Wave',
+    content:
+    'Payez vos réservations avec via Wave',
+    time: '15 Oct 2024',
   },
 ]

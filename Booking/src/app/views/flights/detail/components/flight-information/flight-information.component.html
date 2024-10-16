@@ -1,23 +1,23 @@
 <div class="d-flex align-items-center mb-4">
-  <h1 class="display-4 mb-0"><i class="fa-solid fa-plane rtl-flip"></i></h1>
+  <h1 class="display-4 mb-0"><i class="fa-solid fa-bus rtl-flip"></i></h1>
 
   <div class="ms-3">
     <ul class="list-inline mb-2">
       <li class="list-inline-item me-2">
-        <h3 class="mb-0">Mumbai(BOM)</h3>
+        <h3 class="mb-0">Bouaké</h3>
       </li>
       <li class="list-inline-item me-2 ms-1">
         <h3 class="mb-0"><i class="bi bi-arrow-right"></i></h3>
       </li>
       <li class="list-inline-item me-0 ms-1">
-        <h3 class="mb-0">New York(JFK)</h3>
+        <h3 class="mb-0">Yopougon</h3>
       </li>
     </ul>
 
     <ul class="nav nav-divider h6 fw-normal text-body mb-0">
-      <li class="nav-item">25 Jan</li>
-      <li class="nav-item">1 Stop</li>
-      <li class="nav-item">05h 25m</li>
+      <li class="nav-item">18 Oct</li>
+      <li class="nav-item">1 Arrêt</li>
+      <li class="nav-item">6h</li>
     </ul>
   </div>
 </div>
@@ -25,24 +25,16 @@
 <div class="card border">
   <div class="card-header d-flex justify-content-between pb-0">
     <h6 class="fw-normal mb-0">
-      <span class="text-body">Travel Class:</span> Economy
+      <span class="text-body">Catégorie :</span> Standard
     </h6>
-    <a
-      href="javascript:void(0);"
-      (click)="openModal(content)"
-      class="btn btn-link text-decoration-underline p-0 mb-0"
-      data-bs-toggle="modal"
-      data-bs-target="#baggageFare"
-    >
-      <i class="bi bi-eye-fill me-1"></i>Baggage & Fare Rules
-    </a>
+
   </div>
 
   <div class="card-body p-4">
     @for (item of flightRoutesInfo; track $index) {
       <div class="row g-4">
         <div class="col-md-3">
-          <img src="assets/images/element/09.svg" class="w-80px mb-3" alt="" />
+          <img src="assets/images/element/vip.png" class="w-80px mb-3" alt="" />
 
           <h6 class="fw-normal mb-0">{{ item.airline }}</h6>
           <h6 class="fw-normal mb-0">{{ item.flight_number }}</h6>

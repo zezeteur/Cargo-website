@@ -1,6 +1,6 @@
 <div class="modal-content">
   <div class="modal-header">
-    <h5 class="modal-title">Flight Details</h5>
+    <h5 class="modal-title">Détails du voyage</h5>
     <button
       type="button"
       class="btn-close"
@@ -30,7 +30,7 @@
           aria-controls="flight-info-tab"
           aria-selected="true"
         >
-          Flight Information
+          Informations
         </button>
         <ng-template ngbNavContent>
           <div
@@ -46,16 +46,16 @@
                 >
                   <div class="d-flex mb-2 mb-sm-0">
                     <img
-                      src="assets/images/element/09.svg"
+                      src="assets/images/element/vip.png"
                       class="w-40px me-2"
                       alt=""
                     />
                     <h6 class="fw-normal mb-0">
-                      Phillippines Airline (PA - 5620)
+                      VIP Transport (CCE - 2158)
                     </h6>
                   </div>
                   <h6 class="fw-normal mb-0">
-                    <span class="text-body">Travel Class:</span> Economy
+                    <span class="text-body">Catégorie :</span> Standard
                   </h6>
                 </div>
               </div>
@@ -63,15 +63,15 @@
               <div class="card-body p-4">
                 <div class="row g-4">
                   <div class="col-sm-4">
-                    <h4>BOM</h4>
-                    <h6 class="mb-0">14:50</h6>
+
+                    <h6 class="mb-0">06:00</h6>
                     <p class="mb-0">
-                      Chhatrapati Shivaji International Airport
+                      Bouaké - Côte d'Ivoire
                     </p>
                   </div>
 
                   <div class="col-sm-4 my-sm-auto text-center">
-                    <h5>9hr 50min</h5>
+                    <h5>6h</h5>
 
                     <div class="position-relative my-4">
                       <hr class="bg-primary opacity-5 position-relative" />
@@ -79,33 +79,32 @@
                       <div
                         class="icon-md bg-primary text-white rounded-circle position-absolute top-50 start-50 translate-middle"
                       >
-                        <i class="fa-solid fa-fw fa-plane rtl-flip"></i>
+                        <i class="fa-solid fa-bus rtl-flip"></i>
                       </div>
                     </div>
                   </div>
 
                   <div class="col-sm-4">
-                    <h4>CDG</h4>
-                    <h6 class="mb-0">11:50</h6>
-                    <p class="mb-0">Ch. De Gaulle, Paris, France</p>
+
+                    <h6 class="mb-0">10:00</h6>
+                    <p class="mb-0">Yopougon - Côte d'Ivoire</p>
                   </div>
                 </div>
 
                 <div
                   class="bg-light text-center fw-normal rounded-2 mt-3 mb-4 p-2"
                 >
-                  Change of planes: 3h 15m Layover in France
+
                 </div>
 
                 <div class="row g-4">
                   <div class="col-sm-4">
-                    <h4>CDG</h4>
-                    <h6 class="mb-0">2:50</h6>
-                    <p class="mb-0">Ch. De Gaulle, Paris, France</p>
+                    <h6 class="mb-0">12:30</h6>
+                    <p class="mb-0">Yopougon - Côte d'Ivoire</p>
                   </div>
 
                   <div class="col-sm-4 my-sm-auto text-center">
-                    <h5>5hr 50min</h5>
+                    <h5>6h</h5>
 
                     <div class="position-relative my-4">
                       <hr class="bg-primary opacity-5 position-relative" />
@@ -119,9 +118,8 @@
                   </div>
 
                   <div class="col-sm-4">
-                    <h4>JFK</h4>
-                    <h6 class="mb-0">7:35</h6>
-                    <p class="mb-0">John F Kennedy Intl-NY</p>
+                    <h6 class="mb-0">18:30</h6>
+                    <p class="mb-0">Bouaké - Côte d'Ivoire</p>
                   </div>
                 </div>
               </div>
@@ -142,7 +140,7 @@
           aria-controls="flight-fare-tab"
           aria-selected="false"
         >
-          Fare Detail
+          Détail du tarif
         </button>
         <ng-template ngbNavContent>
           <div
@@ -155,27 +153,27 @@
               <div class="table-responsive-lg">
                 <table class="table caption-bottom mb-0">
                   <caption class="pb-0">
-                    *From The Date Of Departure
+                    * À partir de la date de départ
                   </caption>
 
                   <thead class="table-dark">
                     <tr>
                       <th scope="col" class="border-0 rounded-start">
-                        Base Fare
+                       Tarif de base
                       </th>
-                      <th scope="col" class="border-0">Taxes and Fees</th>
+                      <th scope="col" class="border-0">Taxes et frais de services</th>
                       <th scope="col" class="border-0 rounded-end">
-                        Total Fees
+                        Total
                       </th>
                     </tr>
                   </thead>
 
                   <tbody>
                     <tr>
-                      <td>{{ currencyType }}36,500</td>
-                      <td>{{ currencyType }}1,050</td>
+                      <td>7000 {{ currencyType }}</td>
+                      <td>200 {{ currencyType }}</td>
                       <td>
-                        <h5 class="mb-0">{{ currencyType }}37,550</h5>
+                        <h5 class="mb-0">7200 {{ currencyType }}</h5>
                       </td>
                     </tr>
                   </tbody>
@@ -198,7 +196,7 @@
           aria-controls="flight-baggage-tab"
           aria-selected="false"
         >
-          Baggage Rules
+          Bagages
         </button>
         <ng-template ngbNavContent>
           <div
@@ -210,35 +208,40 @@
             <div class="card border">
               <div class="card-header d-flex align-items-center border-bottom">
                 <img
-                  src="assets/images/element/09.svg"
+                  src="assets/images/element/vip.png"
                   class="h-20px me-1"
                   alt=""
                 />
-                <h5 class="card-title mb-0">BOM - CDG</h5>
+                <h5 class="card-title mb-0">Bouaké - Yopougon</h5>
               </div>
 
               <div class="card-body">
                 <div class="table-responsive-lg">
                   <table class="table caption-bottom mb-0">
                     <caption class="pb-0">
-                      *1PC = 23KG
+                      *1P = 23KG
                     </caption>
 
                     <thead class="table-dark">
                       <tr>
                         <th scope="col" class="border-0 rounded-start">
-                          Baggage Type
+                          Type
                         </th>
-                        <th scope="col" class="border-0">Check In</th>
-                        <th scope="col" class="border-0 rounded-end">Cabin</th>
+                        <th scope="col" class="border-0">En soute</th>
+                        <th scope="col" class="border-0 rounded-end">En cabine</th>
                       </tr>
                     </thead>
 
                     <tbody class="border-top-0">
                       <tr>
-                        <td>Adult</td>
+                        <td>Adulte</td>
                         <td>2 PC</td>
                         <td>7 Kg</td>
+                      </tr>
+                    <tr>
+                        <td>Enfant (0-12 ans)</td>
+                        <td>1 PC</td>
+                        <td>3 Kg</td>
                       </tr>
                     </tbody>
                   </table>
@@ -261,7 +264,7 @@
           aria-controls="flight-policy-tab"
           aria-selected="false"
         >
-          Cancellation Rules
+          Règles d'annulation
         </button>
         <ng-template ngbNavContent>
           <div
@@ -273,40 +276,37 @@
             <div class="card border">
               <div class="card-header d-flex align-items-center border-bottom">
                 <img
-                  src="assets/images/element/09.svg"
+                  src="assets/images/element/vip.png"
                   class="h-20px me-1"
                   alt=""
                 />
-                <h5 class="card-title mb-0">BOM - CDG</h5>
+                <h5 class="card-title mb-0">Bouaké - Yopougon</h5>
               </div>
 
               <div class="card-body">
                 <div class="table-responsive-lg">
                   <table class="table caption-bottom mb-0">
-                    <caption class="pb-0">
-                      *From The Date Of Departure
-                    </caption>
 
                     <thead class="table-dark">
                       <tr>
                         <th scope="col" class="border-0 rounded-start">
-                          Time Frame
+                          Période
                         </th>
                         <th scope="col" class="border-0 rounded-end">
-                          Air Free + MMT Free
+                          Montant billet - Pénalité
                         </th>
                       </tr>
                     </thead>
 
                     <tbody class="border-top-0">
                       <tr>
-                        <td>0 hours to 24 hours</td>
-                        <td>Non Refundable</td>
+                        <td>Entre 0 et 24 heures</td>
+                        <td>Non remboursable</td>
                       </tr>
                       <tr>
-                        <td>24 hours to 365 days</td>
+                        <td>Entre 24 hours et 365 jours</td>
                         <td>
-                          {{ currencyType }}16,325 + {{ currencyType }}250
+                         7000 {{ currencyType }} - 700{{ currencyType }}
                         </td>
                       </tr>
                     </tbody>
